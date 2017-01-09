@@ -31,19 +31,20 @@ public class ShoppingBasketTest{
   //   assertEquals(1, basket.getSize());
   // }
 
-  @Test
-  public void removeLastItemTest() {
-    basket.add(item2);
-    basket.add(item);
-    Shoppable removedItem = basket.removeLastItem();
-    assertEquals(104, removedItem.getID());
-  }
-
-  // @Test 
-  // public void removeLastItemCannotRemoveWhenEmptyTest() {
-  //   basket.removeLastItem();
-  //   assertEquals(0, basket.getSize());
+  // @Test
+  // public void removeLastItemTest() {
+  //   basket.add(item2);
+  //   basket.add(item);
+  //   Shoppable removedItem = basket.removeLastItem();
+  //   assertEquals(104, removedItem.getID());
   // }
+
+  @Test 
+  public void removeLastItemCannotRemoveWhenEmptyTest() {
+    Shoppable removedItem = basket.removeLastItem();
+    assertEquals(0, basket.getSize());
+    assertEquals(null, removedItem);
+  }
 
   // @Test 
   // public void removeItemByIDTest() {

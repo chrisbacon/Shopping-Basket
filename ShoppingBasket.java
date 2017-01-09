@@ -16,7 +16,11 @@ public class ShoppingBasket {
     }
 
     public Shoppable removeLastItem() {
-        return items.remove(getSize() - 1);
+        Shoppable foundItem = null;
+        if (getSize()-1 >= 0) {
+            foundItem = items.remove(getSize() - 1);
+        }
+        return foundItem;
     }
 
     public Shoppable removeItemByID(int id) {
