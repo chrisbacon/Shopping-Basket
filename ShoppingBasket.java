@@ -14,4 +14,15 @@ public class ShoppingBasket {
     public void add(Shoppable item) {
         items.add(item);
     }
+
+    public Shoppable removeItemByID(int id) {
+        Shoppable foundItem = null;
+        for (Shoppable item : items) {
+            if (item.getID() == id) {
+                items.remove(item);
+                foundItem = item;
+            }
+        }
+        return foundItem;
+    }
 }
