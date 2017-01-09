@@ -1,9 +1,17 @@
 import java.util.*;
 
 public class ShoppingBasket {
-    ArrayList<Shoppable> items;
+    private ArrayList<Shoppable> items;
 
     public ShoppingBasket() {
-        items = new ArrayList<Shoppable>();
+        this.items = new ArrayList<Shoppable>();
     }
+
+    public int getSize() {
+        return items.size();
+    }
+
+    // public void add(Shoppable item) {
+    //     items.add(item);
+    // }
 }
