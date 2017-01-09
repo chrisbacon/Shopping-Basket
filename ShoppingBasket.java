@@ -2,9 +2,11 @@ import java.util.*;
 
 public class ShoppingBasket {
     private ArrayList<Shoppable> items;
+    private boolean loyal;
 
     public ShoppingBasket() {
         this.items = new ArrayList<Shoppable>();
+        loyal = false;
     }
 
     public int getSize() {
@@ -34,9 +36,17 @@ public class ShoppingBasket {
         return foundItem;
     }
 
+    private boolean isLoyal() {
+        return loyal;
+    }
+
+    public void setLoyal(boolean loyal) {
+        this.loyal = loyal;
+    }
+
     public double getTotalPrice() {
         double total = 0;
-        
+
         for (Shoppable item : items) {
             total += item.getPrice();
         }

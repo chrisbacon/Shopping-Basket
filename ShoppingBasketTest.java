@@ -64,4 +64,14 @@ public class ShoppingBasketTest{
 
     assertEquals(7.00, 0.001, basket.getTotalPrice());
   }
+
+  @Test
+  public void getTotalPriceTestIfLoyalTest() {
+    basket.add(item);
+    basket.add(item2);
+
+    basket.setLoyal(true);
+
+    assertEquals(6.86, 0.001, basket.getTotalPrice());
+  }
 }
