@@ -1,3 +1,3 @@
 public interface Shoppable {
-    public int getGUID(); 
+    public int getID(); 
 }
