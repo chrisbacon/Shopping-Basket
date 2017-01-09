@@ -15,9 +15,11 @@ public class ShoppingBasketTest{
 
     item = mock(Shoppable.class);
     when(item.getID()).thenReturn(104);
+    when(item.getPrice()).thenReturn(2.50);
 
     item2 = mock(Shoppable.class);
     when(item2.getID()).thenReturn(223);
+    when(item2.getPrice()).thenReturn(4.50);
   }
 
   @Test
@@ -53,5 +55,13 @@ public class ShoppingBasketTest{
 
     Shoppable removedItem = basket.removeItemByID(104);
     assertEquals(104, removedItem.getID());
+  }
+
+  @Test
+  public void getTotalPriceTest() {
+    basket.add(item);
+    basket.add(item2);
+
+    assertEquals(7.00, 0.001, basket.getTotalPrice());
   }
 }

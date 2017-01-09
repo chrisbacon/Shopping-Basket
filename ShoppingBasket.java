@@ -33,4 +33,14 @@ public class ShoppingBasket {
         }
         return foundItem;
     }
+
+    public double getTotalPrice() {
+        double total = 0;
+        
+        for (Shoppable item : items) {
+            total += item.getPrice();
+        }
+
+        return total;
+    }
 }
