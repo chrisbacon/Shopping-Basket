@@ -26,12 +26,17 @@ public class ShoppingBasketTest{
   }
 
   @Test
-  public void removeTest() {
+  public void removeLastItemTest() {
     basket.removeLastItem();
     assertEquals(0, basket.getSize());
 
     basket.add(item);
     basket.removeLastItem();
     assertEquals(0, basket.getSize());
+  }
+
+  @Test 
+  public void removeSpecificItem() {
+    
   }
 }
