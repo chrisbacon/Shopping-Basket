@@ -15,7 +15,18 @@ public class ShoppingBasketTest{
   }
 
   @Test
+  public void getSizeTest() {
+    assertEquals(0, basket.getSize());
+  }
+
+  @Test
   public void addTest() {
     basket.add(item);
+    assertEquals(1, basket.getSize());
+  }
+
+  @Test
+  public void removeTest() {
+
   }
 }
