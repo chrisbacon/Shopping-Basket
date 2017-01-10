@@ -57,6 +57,11 @@ public class ShoppingBasket {
     }
 
     private double overTwentyDiscount(double total) {
+
+        if (total > 20.00) {
+            total *= 0.9;
+        }
+        
         return total;
     }
 

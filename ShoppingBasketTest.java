@@ -74,4 +74,18 @@ public class ShoppingBasketTest{
 
     assertEquals(6.86, basket.getTotalPrice(), 0.001);
   }
+
+  @Test
+  public void getTotalPriceIfOverTwentyTest() {
+    basket.add(item);
+    basket.add(item2);
+
+    Shoppable item3 = mock(Shoppable.class);
+    when(item3.getID()).thenReturn(317);
+    when(item3.getPrice()).thenReturn(14.00);
+
+    basket.add(item3);
+
+    assertEquals(18.90, basket.getTotalPrice(), 0.001);
+  }
 }
