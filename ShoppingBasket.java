@@ -53,7 +53,29 @@ public class ShoppingBasket {
     }
 
     private double bogofDiscount() {
-        return 0;
+
+        HashMap<Shoppable,Integer> counts = new HashMap<Shoppable, Integer>();
+
+        for (Shoppable item : items) {
+            if (counts.containsKey(item)) {
+                int current = counts.get(item);
+                counts.put(item, current + 1);
+            } else {
+                counts.put(item, 1);
+            }
+        }
+
+        double discount = 0;
+
+        for (Map.Entry<Shoppable, Integer> entry : counts.entrySet()) {
+            int count = entry.getValue();
+            if (count >= 2) {
+                Shoppable item = entry.getKey();
+                discount += (count/2)*item.getPrice();
+            } 
+        }
+
+        return discount;
     }
 
     private double overTwentyDiscount(double total) {
@@ -61,7 +83,7 @@ public class ShoppingBasket {
         if (total > 20.00) {
             total *= 0.9;
         }
-        
+
         return total;
     }
 
