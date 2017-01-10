@@ -44,6 +44,22 @@ public class ShoppingBasket {
         this.loyal = loyal;
     }
 
+    private double loyaltyDiscount() {
+        double discount = 1.00;
+        if (isLoyal()) {
+            discount = 0.98;
+        }
+        return discount;
+    }
+
+    private double bogofDiscount() {
+        return 0;
+    }
+
+    private double overTwentyDiscount(double total) {
+        return total;
+    }
+
     public double getTotalPrice() {
         double total = 0;
 
@@ -51,6 +67,8 @@ public class ShoppingBasket {
             total += item.getPrice();
         }
 
-        return total;
+        return loyaltyDiscount()*overTwentyDiscount(total - bogofDiscount());
     }
+
+
 }

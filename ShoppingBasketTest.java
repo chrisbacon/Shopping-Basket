@@ -62,7 +62,7 @@ public class ShoppingBasketTest{
     basket.add(item);
     basket.add(item2);
 
-    assertEquals(7.00, 0.001, basket.getTotalPrice());
+    assertEquals(7.00, basket.getTotalPrice(), 0.001);
   }
 
   @Test
@@ -72,6 +72,6 @@ public class ShoppingBasketTest{
 
     basket.setLoyal(true);
 
-    assertEquals(6.86, 0.001, basket.getTotalPrice());
+    assertEquals(6.86, basket.getTotalPrice(), 0.001);
   }
 }
