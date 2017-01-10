@@ -56,23 +56,18 @@ public class ShoppingBasket {
 
         HashMap<Shoppable,Integer> counts = new HashMap<Shoppable, Integer>();
 
+        double discount = 0;
+
         for (Shoppable item : items) {
             if (counts.containsKey(item)) {
                 int current = counts.get(item);
                 counts.put(item, current + 1);
+                if ((current + 1) % 2 == 0) {
+                    discount += item.getPrice();
+                }
             } else {
                 counts.put(item, 1);
             }
-        }
-
-        double discount = 0;
-
-        for (Map.Entry<Shoppable, Integer> entry : counts.entrySet()) {
-            int count = entry.getValue();
-            if (count >= 2) {
-                Shoppable item = entry.getKey();
-                discount += (count/2)*item.getPrice();
-            } 
         }
 
         return discount;
