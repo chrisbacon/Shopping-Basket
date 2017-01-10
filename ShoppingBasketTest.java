@@ -88,4 +88,31 @@ public class ShoppingBasketTest{
 
     assertEquals(18.90, basket.getTotalPrice(), 0.001);
   }
+
+  @Test
+  public void getTotalPriceIfBOGOF() {
+    basket.add(item);
+    basket.add(item);
+
+    assertEquals(2.50, basket.getTotalPrice(), 0.001);
+  }
+
+  @Test
+  public void getTotalPriceIfBOGOFThreeItems() {
+    basket.add(item);
+    basket.add(item);
+    basket.add(item);
+
+    assertEquals(5.00, basket.getTotalPrice(), 0.001);
+  }
+
+  @Test
+  public void getTotalPriceIfBOGOFMulipleDiscounts() {
+    basket.add(item);
+    basket.add(item);
+    basket.add(item);
+    basket.add(item);
+
+    assertEquals(5.00, basket.getTotalPrice(), 0.001);
+  }
 }
