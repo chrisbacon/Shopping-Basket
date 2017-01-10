@@ -62,7 +62,7 @@ public class ShoppingBasketTest{
     basket.add(item);
     basket.add(item2);
 
-    assertEquals(7.00, basket.getTotalPrice(), 0.001);
+    assertEquals(7.00, basket.getTotalPrice(), 0.01);
   }
 
   @Test
@@ -72,7 +72,7 @@ public class ShoppingBasketTest{
 
     basket.setLoyal(true);
 
-    assertEquals(6.86, basket.getTotalPrice(), 0.001);
+    assertEquals(6.86, basket.getTotalPrice(), 0.01);
   }
 
   @Test
@@ -86,7 +86,7 @@ public class ShoppingBasketTest{
 
     basket.add(item3);
 
-    assertEquals(18.90, basket.getTotalPrice(), 0.001);
+    assertEquals(18.90, basket.getTotalPrice(), 0.01);
   }
 
   @Test
@@ -94,7 +94,7 @@ public class ShoppingBasketTest{
     basket.add(item);
     basket.add(item);
 
-    assertEquals(2.50, basket.getTotalPrice(), 0.001);
+    assertEquals(2.50, basket.getTotalPrice(), 0.01);
   }
 
   @Test
@@ -103,7 +103,7 @@ public class ShoppingBasketTest{
     basket.add(item);
     basket.add(item);
 
-    assertEquals(5.00, basket.getTotalPrice(), 0.001);
+    assertEquals(5.00, basket.getTotalPrice(), 0.01);
   }
 
   @Test
@@ -113,6 +113,26 @@ public class ShoppingBasketTest{
     basket.add(item);
     basket.add(item);
 
-    assertEquals(5.00, basket.getTotalPrice(), 0.001);
+    assertEquals(5.00, basket.getTotalPrice(), 0.01);
+  }
+
+  @Test
+  public void getTotalPriceIfLoyalBogofOverTwentyTest() {
+    basket.add(item);
+    basket.add(item);
+    basket.add(item2);
+    basket.add(item2);
+    basket.add(item2);
+
+    Shoppable item3 = mock(Shoppable.class);
+    when(item3.getID()).thenReturn(317);
+    when(item3.getPrice()).thenReturn(14.00);
+
+    basket.add(item3);
+
+    basket.setLoyal(true);
+
+    assertEquals(22.49, basket.getTotalPrice(), 0.01);
+
   }
 }

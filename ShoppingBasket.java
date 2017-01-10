@@ -96,6 +96,4 @@ public class ShoppingBasket {
 
         return loyaltyDiscount()*overTwentyDiscount(total - bogofDiscount());
     }
-
-
 }
