@@ -60,11 +60,14 @@ public class ShoppingBasket {
 
         for (Shoppable item : items) {
             if (counts.containsKey(item)) {
-                int current = counts.get(item);
-                counts.put(item, current + 1);
-                if ((current + 1) % 2 == 0) {
+                int next = counts.get(item) + 1;
+
+                if (next % 2 == 0) {
                     discount += item.getPrice();
                 }
+
+                counts.put(item, next);
+
             } else {
                 counts.put(item, 1);
             }
